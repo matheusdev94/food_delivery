@@ -1,1 +1,21 @@
-node_modules
+# Arquivos de configuração
+.env
+npm-debug.log
+yarn-error.log
+
+# Pastas geradas pelo Node.js
+node_modules/
+
+# Arquivos de dependências (se você usa npm)
+package-lock.json
+
+# Logs de erros
+error.log
+
+# Arquivos gerados por IDEs e editores de código
+.vscode/
+.idea/
+
+# Arquivos de build (dependendo do seu ambiente)
+build/
+dist/
