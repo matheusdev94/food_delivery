@@ -1,55 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { LandingScreen } from './src/screen/LandingScreen';
 
-import React, { Component } from 'react';
-import type { PropsWithChildren } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import BottomBar from './src/components/BottomBar';
-import Components from './src/components';
-
-type SectionProps = PropsWithChildren<{
-
-}>;
-
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+export default function App() {
   return (
-    <>
-      <View>
-        <Components />
-      </View>
-    </>
+    <View style={styles.container}>
+      <LandingScreen />
+      {/* <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" /> */}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    width: "100%",
+    height: '100%'
+  },
 });
-
-export default App;
