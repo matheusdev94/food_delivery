@@ -4,9 +4,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { HomeScreen } from "./src/screens/HomeScreen";
 import { LandingScreen } from "./src/screens/LandingScreen";
 
-
 import { Provider } from "react-redux";
-// import { store } from "./src/redux/index";
 import { store } from "./src/redux/store";
 
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
@@ -19,19 +17,19 @@ import { CartScreen } from "./src/screens/CartScreen";
 import { LoginScreen } from "./src/screens/LoginScreen";
 
 const switchNavigator = createSwitchNavigator({
-  landingStack: {
-    screen: createStackNavigator(
-      {
-        Landing: LandingScreen,
-        // search address screen
-      },
-      {
-        defaultNavigationOptions: {
-          headerShown: false,
-        },
-      }
-    ),
-  },
+  // landingStack: {
+  //   screen: createStackNavigator(
+  //     {
+  //       Landing: LandingScreen,
+  //       // search address screen
+  //     },
+  //     {
+  //       defaultNavigationOptions: {
+  //         headerShown: false,
+  //       },
+  //     }
+  //   ),
+  // },
 
   homeStack: createBottomTabNavigator({
     // Home tab Icon
@@ -123,13 +121,7 @@ const AppNavigation = createAppContainer(switchNavigator);
 export default function App() {
   return (
     <Provider store={store}>
-
-      {/* <View style={styles.container}> */}
-
-      {/* <Text>hi</Text> */}
       <AppNavigation />
-      {/* </View> */}
-
     </Provider>
   );
 }
