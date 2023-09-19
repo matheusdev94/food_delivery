@@ -1,3 +1,4 @@
+import { LocationGeocodedAddress } from "expo-location";
 export interface Address {
     city: string;
     district: string;
