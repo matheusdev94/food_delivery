@@ -12,7 +12,7 @@ export const initializeDbConnection = async () => {
     useUnifiedTopology: true,
   });
 };
-export const getDbConnetcion = (dbName) => {
+export const getDbConnection = (dbName) => {
   const db = client.db(dbName);
   return db;
 };
