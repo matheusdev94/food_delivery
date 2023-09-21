@@ -31,7 +31,7 @@ npm run dev
 3. Run mobile aplication
 ```bash
 cd ../mobile
-expo start --tunnel
+# expo start --tunnel 
 ```
 Contato
 Matheus Campos - matheus.dev94@gmail.com
