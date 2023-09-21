@@ -33,6 +33,5 @@ npm run dev
 cd ../mobile
 expo start --tunnel
 ```
-
 Contato
 Matheus Campos - matheus.dev94@gmail.com
