@@ -1,6 +1,7 @@
 import express from "express";
 import { routes } from "./routes";
-import { initializeDbConnection } from "./db";
+// import { initializeDbConnection } from "./db";
+import { initializeDbConnection } from "./database/db";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./utils/swaggerConfig";
