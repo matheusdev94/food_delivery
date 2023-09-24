@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "react";
-// import { BASE_URL } from "../../utils";
+import { BASE_URL } from "../../utils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Address, FoodModel } from "../models";
 
@@ -62,66 +62,64 @@ export const onUpdateCart = (item: FoodModel) => {
 
 export const OnUserLogin = (email: string, password: string) => {
     return async (dispatch: Dispatch<UserAction>) => {
-        // try {
-        //     const response = await axios.post<string>(`${BASE_URL}user/login`, {
-        //         email,
-        //         password,
-        //     });
 
-        //     console.log(response);
+        try {
+            const response = await axios.post<string>(`${BASE_URL}user/login`, {
+                email,
+                password,
+            });
 
-        //     if (!response) {
-        //         dispatch({
-        //             type: "ON_USER_ERROR",
-        //             payload: "Login Error",
-        //         });
-        //     } else {
-        //         dispatch({
-        //             type: "ON_USER_LOGIN",
-        //             payload: response.data,
-        //         });
-        //     }
-        // } catch (error) {
-        //     dispatch({
-        //         type: "ON_USER_ERROR",
-        //         payload: "Login Error",
-        //     });
-        // }
+            console.log(response);
+
+            if (!response) {
+                dispatch({
+                    type: "ON_USER_ERROR",
+                    payload: "Login Error",
+                });
+            } else {
+                dispatch({
+                    type: "ON_USER_LOGIN",
+                    payload: response.data,
+                });
+            }
+        } catch (error) {
+            dispatch({
+                type: "ON_USER_ERROR",
+                payload: "Login Error",
+            });
+        }
     };
 };
 
 export const OnUserSignup = (
     email: string,
     phone: string,
-    password: string
+    password: string,
+    userName: string
 ) => {
     return async (dispatch: Dispatch<UserAction>) => {
-        // try {
-        //     const response = await axios.post<string>(`${BASE_URL}user/signup`, {
-        //         email,
-        //         phone,
-        //         password,
-        //     });
+        try {
+            const response = await axios.post<string>(`${BASE_URL}/user/signup`, {
+                email, phone, password, userName
+            })
 
-        //     console.log(response);
+            if (!Response) {
+                console.log("ERROR ON SIGNUP NEW USER: \n");
+                dispatch({
+                    type: 'ON_USER_ERROR',
+                    payload: 'Login Error'
+                })
+            } else {
 
-        //     if (!response) {
-        //         dispatch({
-        //             type: "ON_USER_ERROR",
-        //             payload: "Login Error",
-        //         });
-        //     } else {
-        //         dispatch({
-        //             type: "ON_USER_LOGIN",
-        //             payload: response.data,
-        //         });
-        //     }
-        // } catch (error) {
-        //     console.log(error);
-        //     dispatch({
-        //         type: "ON_USER_ERROR",
-        //         payload: "Login Error",
-        //     });
-        // }
+            }
+
+        } catch (error) {
+            console.log("ERROR ON SIGNUP\n", error);
+            dispatch({
+                type: 'ON_USER_ERROR',
+                payload: 'Login Error'
+            })
+
+        }
     };
 };

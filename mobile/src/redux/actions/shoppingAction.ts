@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import { Address } from 'expo-location'
 import { Dispatch } from 'react'
-// import { BASE_URL } from '../../utils'
+import { BASE_URL } from '../../utils'
 import { FoodAvailability, FoodModel } from '../models'
 
 
@@ -37,24 +37,19 @@ export const onAvailability = (postCode: string) => {
     return async (dispatch: Dispatch<ShoppingAction>) => {
 
         try {
-
-            // const response = await axios.get<FoodAvailability>(`${BASE_URL}food/availability/${postCode}`)
-
-
-            // if (!response) {
-            //     dispatch({
-            //         type: 'ON_SHOPPING_ERROR',
-            //         payload: 'Availability error'
-            //     })
-            // } else {
-            //     // save our location in local storage
-            //     dispatch({
-            //         type: 'ON_AVAILABILITY',
-            //         payload: response.data
-            //     })
-            // }
-
-
+            const response = await axios.get<FoodAvailability>(`${BASE_URL}food/availability/${postCode}`)
+            if (!response) {
+                dispatch({
+                    type: 'ON_SHOPPING_ERROR',
+                    payload: 'Availability error'
+                })
+            } else {
+                // save our location in local storage
+                dispatch({
+                    type: 'ON_AVAILABILITY',
+                    payload: response.data
+                })
+            }
         } catch (error) {
             dispatch({
                 type: 'ON_SHOPPING_ERROR',
@@ -76,22 +71,22 @@ export const onSearchFoods = (postCode: string) => {
 
         try {
 
-            // const response = await axios.get<[FoodModel]>(`${BASE_URL}food/search/${postCode}`)
+            const response = await axios.get<[FoodModel]>(`${BASE_URL}food/search/${postCode}`)
 
-            // console.log(response)
+            console.log(response)
 
-            // if (!response) {
-            //     dispatch({
-            //         type: 'ON_SHOPPING_ERROR',
-            //         payload: 'Availability error'
-            //     })
-            // } else {
-            //     // save our location in local storage
-            //     dispatch({
-            //         type: 'ON_FOODS_SEARCH',
-            //         payload: response.data
-            //     })
-            // }
+            if (!response) {
+                dispatch({
+                    type: 'ON_SHOPPING_ERROR',
+                    payload: 'Availability error'
+                })
+            } else {
+                // save our location in local storage
+                dispatch({
+                    type: 'ON_FOODS_SEARCH',
+                    payload: response.data
+                })
+            }
 
 
         } catch (error) {

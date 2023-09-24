@@ -51,7 +51,7 @@ export interface UserModel {
     lastName: String;
     contactNumber: String;
     token: string;
-    varified: boolean;
+    verified: boolean;
 }
 
 export interface UserState {
@@ -66,4 +66,16 @@ export interface ShoppingState {
     availability: FoodAvailability;
     availableFoods: [FoodModel];
     //other models
+}
+
+
+export interface UserPayload {
+    userName: string;
+    userPassword: string;
+    userEmail: string;
+    userPhone: string;
+}
+export interface UserLoginPayload {
+    userPassword: string;
+    userEmail: string;
 }
