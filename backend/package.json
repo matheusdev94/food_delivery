@@ -6,16 +6,20 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "googleapis": "^126.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.1.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "uuid": "^9.0.1"
   },
   "scripts": {
     "dev": "nodemon --exec babel-node -r dotenv/config ./src/server.js",
-    "db": "cd C:\\Program Files\\MongoDB\\Server\\7.0 && mongod"
-
+    "db": "cd C:\\Program Files\\MongoDB\\Server\\7.0 && mongod",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",
