@@ -1,18 +1,24 @@
 import React, { useState, useReducer, useEffect } from "react"
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
 import { landingPageString, waitingForAddressString } from "../strings/stringsPt"
-
-// import { useNavigation } from '../utils'
-import { useNavigation } from "../utils/indx"
+import { useNavigation } from "../utils"
 
 import * as Location from 'expo-location'
 
-const screenWidth = Dimensions.get('screen').width
+import { onUpdateLocation, UserState, ApplicationState } from "../redux"
+import { connect } from 'react-redux'
 
 const logo = require('../images/logo.png')
+const screenWidth = Dimensions.get('screen').width
 // const logo = require('../images/delivery_icon.png')
 
-export const LandingScreen: React.FC = () => {
+interface LandingProps {
+    userReducer: UserState,
+    onUpdateLocation: Function
+}
+const _LandingScreen: React.FC<LandingProps> = (props) => {
+
+    const { userReducer, onUpdateLocation } = props
 
     const { navigate } = useNavigation() //isntantiate the navigation hook
 
@@ -116,3 +122,9 @@ const styles = StyleSheet.create({
     },
 
 })
+
+const mapToStateProps = (state: ApplicationState) => ({
+    userReducer: state.userReducer
+})
+
+export const LandingScreen = connect(mapToStateProps, { onUpdateLocation })(_LandingScreen)
